@@ -48,7 +48,8 @@ public String hello(String h) {
  ### 3. 数据库方式输出
    修改application.yml
    
-    ```java
+```java
+    
     record: 
       log: 
         storageType: database
@@ -58,7 +59,8 @@ public String hello(String h) {
         username: root
         password: 123456
         driverClassName: com.mysql.jdbc.Driver
-    ```
+	
+ ```
     
     在service添加日志表信息:
     
