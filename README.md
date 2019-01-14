@@ -36,14 +36,17 @@ public String hello(String h) {
  
  ### 2. 文件方式输出
    默认使用控制台输出，该项是可配置的，修改application.yml：
+   
  ```yml
     record: 
       log: 
         storageType: file
         filePath: rr.log
 ```
+
  ### 3. 数据库方式输出
    修改application.yml
+   
     ```yml
     record: 
       log: 
@@ -55,7 +58,9 @@ public String hello(String h) {
         password: 123456
         driverClassName: com.mysql.jdbc.Driver
     ```
+    
     在service添加日志表信息:
+    
     ```java
         @RecordLog(value = {"'user registriong userName:'+#userName+',password:'+#password","#datetime"})
         @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
@@ -69,6 +74,7 @@ public String hello(String h) {
     		return false;
     	}
     ```
+    
     RecordTable注解定义的列必须和RecordLog的value数组顺序一致
     主键类型（AUTO,IDENTIFY,UUID）:
       - identity表示columns所有列和value对应，uuid也不需要指定值：
