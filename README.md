@@ -1,7 +1,7 @@
 # cherry-tool-log
 通用的系统日志记录工具
 日志框架基于用java8+springboot2.0.6编写<br/>
-如需使用，必须在springboot环境下
+目前仅支持在springboot环境下
 
 ## 使用例子
 
