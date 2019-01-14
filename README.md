@@ -93,9 +93,9 @@ public String hello(String h) {
      此时就不需要使用@RecordTable注解。
    
      ```java
-     @Bean
-     public DataSourceStorage dss(){
-         return XXXDataSourceStorage();
-     }
+	     @Bean
+	     public DataSourceStorage dss(){
+		 return XXXDataSourceStorage();
+	     }
      ```
   
