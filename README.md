@@ -98,7 +98,7 @@ public String hello(String h) {
 		public boolean login(String userName,String password) 			
 					
 ```
-   如果觉得使用@RecordTable每个日志类型都需要定义可以自己实现DataSourceStorage接口，注册到springbean的容器。
+   如果觉得使用@RecordTable每个日志都需要定义注解，可以自己实现DataSourceStorage接口，注册到springbean的容器。
      此时就不需要使用@RecordTable注解。
    
 ```java
