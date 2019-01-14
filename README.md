@@ -20,8 +20,9 @@ public String hello(String h) {
 ```
 默认日志使用控制台输出，目前支持三种方式 
  ### 1. 控制台输出（默认）
-    @RecordLog的value值是个数组，可以多条日志，value使用ognl表达式 #参数名，也可以使用#参数对象.属性
-   支持默认的一些参数
+    @RecordLog的value值是个数组，可以多条日志，value使用ognl表达式 \#参数名，也可以使用\#参数对象.属性
+   支持默认的一些参数:
+   
     默認可以使用的常量是
      - \#date 表示格式化的yyyy-MM-dd日期，表示当前插入日志时间点
 	 - \#time 表示格式化的 HH24:mi:ss時間。
