@@ -60,10 +60,8 @@ public String hello(String h) {
         password: 123456
         driverClassName: com.mysql.jdbc.Driver
 	
- ```
-    
-    在service添加日志表信息:
-    
+ ``` 
+ 在service添加日志表信息:
 ```java
         @RecordLog(value = {"'user registriong userName:'+#userName+',password:'+#password","#datetime"})
         @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
@@ -78,8 +76,8 @@ public String hello(String h) {
     	}
 ```
     
-    RecordTable注解定义的列必须和RecordLog的value数组顺序一致
-    主键类型（AUTO,IDENTIFY,UUID）:
+   RecordTable注解定义的列必须和RecordLog的value数组顺序一致
+   主键类型（AUTO,IDENTIFY,UUID）:
       - identity表示columns所有列和value对应，uuid也不需要指定值：
 
 ```java
@@ -90,7 +88,7 @@ public String hello(String h) {
     					},generationType=GenerationType.IDENTITY)
                    public boolean login(String userName,String password) {
 ```
-      - auto是程序指定主键  第0列就是主键的参数
+   - auto是程序指定主键  第0列就是主键的参数
 ```java
     		@RecordLog(value = {"#id","'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})		
 			@RecordTable(table = @Table(name="my_log"), id = "id", columns = {
@@ -100,7 +98,7 @@ public String hello(String h) {
 		public boolean login(String userName,String password) 			
 					
 ```
-      如果觉得使用@RecordTable每个日志类型都需要定义可以自己实现DataSourceStorage接口，注册到springbean的容器。
+   如果觉得使用@RecordTable每个日志类型都需要定义可以自己实现DataSourceStorage接口，注册到springbean的容器。
      此时就不需要使用@RecordTable注解。
    
 ```java
