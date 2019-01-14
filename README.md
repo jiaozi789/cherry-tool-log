@@ -79,7 +79,7 @@ public String hello(String h) {
     					@Column(name = "content"), 
     					@Column(name = "createTime") 
     					},generationType=GenerationType.IDENTITY)
-       
+                   public boolean login(String userName,String password) {
       ```
       - auto是程序指定主键  第0列就是主键的参数
         ```java
@@ -87,9 +87,11 @@ public String hello(String h) {
 			@RecordTable(table = @Table(name="my_log"), id = "id", columns = {
 					@Column(name = "content"), 
 					@Column(name = "createTime") 
-					},generationType=GenerationType.AUTO)		
+					},generationType=GenerationType.AUTO)
+		public boolean login(String userName,String password) 			
+					
         ```
-   如果觉得使用@RecordTable每个日志类型都需要定义可以自己实现DataSourceStorage接口，注册到springbean的容器。
+      如果觉得使用@RecordTable每个日志类型都需要定义可以自己实现DataSourceStorage接口，注册到springbean的容器。
      此时就不需要使用@RecordTable注解。
    
      ```java
