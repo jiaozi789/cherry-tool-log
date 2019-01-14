@@ -1,4 +1,4 @@
-cherry-tool-log
+#cherry-tool-log
 通用的系统日志记录工具
 日志框架基于用java8+springboot2.0.6编写<br/>
 如需使用，必须在springboot环境下
@@ -82,14 +82,15 @@ public String hello(String h) {
        
       ```
       - auto是程序指定主键  第0列就是主键的参数
+        ```java
     		@RecordLog(value = {"#id","'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})		
 			@RecordTable(table = @Table(name="my_log"), id = "id", columns = {
 					@Column(name = "content"), 
 					@Column(name = "createTime") 
 					},generationType=GenerationType.AUTO)		
-  
+        ```
    如果觉得使用@RecordTable每个日志类型都需要定义可以自己实现DataSourceStorage接口，注册到springbean的容器。
-     此时就不需要使用@RecordTable注解
+     此时就不需要使用@RecordTable注解。
    
      ```java
      @Bean
