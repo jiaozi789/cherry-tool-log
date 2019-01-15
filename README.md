@@ -90,8 +90,8 @@ public String hello(String h) {
 ```java
        @RecordLog(value = {"'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})
        @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
-		@Column(name = "content"), 
-		@Column(name = "createTime") 
+			@Column(name = "content"), 
+			@Column(name = "createTime") 
 		},generationType=GenerationType.IDENTITY)
        public boolean login(String userName,String password) {
 ```
@@ -99,8 +99,8 @@ public String hello(String h) {
 ```java
         @RecordLog(value = {"#id","'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})		
         @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
-		@Column(name = "content"), 
-		@Column(name = "createTime") 
+			@Column(name = "content"), 
+			@Column(name = "createTime") 
 		},generationType=GenerationType.AUTO)
 	public boolean login(String userName,String password) 			
 					
@@ -109,9 +109,9 @@ public String hello(String h) {
      此时就不需要使用@RecordTable注解。
    
 ```java
-     @Bean
-     public DataSourceStorage dss(){
-	 return XXXDataSourceStorage();
-     }
+       @Bean
+       public DataSourceStorage dss(){
+	   return XXXDataSourceStorage();
+       }
 ```
   
