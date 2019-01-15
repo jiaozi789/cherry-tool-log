@@ -97,12 +97,12 @@ public String hello(String h) {
 ```
    - auto是程序指定主键  第0列就是主键的参数
 ```java
-        @RecordLog(value = {"#id","'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})		
+        @RecordLog(value = {"#user.id","'用户注册 用户名:'+#user.userName+',密码:'+#user.password","#datetime"})		
         @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
 			@Column(name = "content"), 
 			@Column(name = "createTime") 
 		},generationType=GenerationType.AUTO)
-	public boolean login(String userName,String password) 			
+	public boolean login(User user) 			
 					
 ```
    如果觉得使用@RecordTable每个日志都需要定义注解，可以自己实现DataSourceStorage接口，注册到springbean的容器。
