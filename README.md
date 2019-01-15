@@ -10,7 +10,7 @@
 <dependency>
   <groupId>io.github.jiaozi789.tool</groupId>
   <artifactId>cherry-tool-log</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1-RELEASE</version>
 </dependency>
 ```
 - main方法类上添加启用日志注解
