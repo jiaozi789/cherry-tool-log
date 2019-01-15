@@ -68,7 +68,7 @@ public String hello(String h) {
         driverClassName: com.mysql.jdbc.Driver
 	
  ``` 
- 注意springboot程序必须构建一个DataSource，可以使用data-jpg或者使用其他连接池构建。
+ 注意springboot程序必须构建一个DataSource，可以使用data-jpa或者使用其他连接池构建。
  在service添加日志表信息:
 ```java
         @RecordLog(value = {"'user registriong userName:'+#userName+',password:'+#password","#datetime"})
