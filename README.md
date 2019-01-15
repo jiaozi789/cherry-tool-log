@@ -5,7 +5,14 @@
 
 ## 使用例子
 
-- 添加maven依赖 
+- 添加maven依赖 (目前未同步到中央仓库，在sonatype仓库中)
+```java
+<dependency>
+  <groupId>io.github.jiaozi789.tool</groupId>
+  <artifactId>cherry-tool-log</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+</dependency>
+```
 - main方法类上添加启用日志注解
   ```java
     @EnableRecordLog
