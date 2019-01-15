@@ -71,17 +71,17 @@ public String hello(String h) {
  注意springboot程序必须构建一个DataSource，可以使用data-jpa或者使用其他连接池构建。
  在service添加日志表信息:
 ```java
-        @RecordLog(value = {"'user registriong userName:'+#userName+',password:'+#password","#datetime"})
-        @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
-    			@Column(name = "content"), 
-    			@Column(name = "createTime") 
-    			},generationType=GenerationType.IDENTITY)
-    	public boolean login(String userName,String password) {
-    		if("admin".equals(userName) && "password".equals(password)) {
-    			return true;
-    		}
-    		return false;
-    	}
+@RecordLog(value = {"'user registriong userName:'+#userName+',password:'+#password","#datetime"})
+@RecordTable(table = @Table(name="my_log"), id = "id", columns = {
+		@Column(name = "content"), 
+		@Column(name = "createTime") 
+		},generationType=GenerationType.IDENTITY)
+public boolean login(String userName,String password) {
+	if("admin".equals(userName) && "password".equals(password)) {
+		return true;
+	}
+	return false;
+}
 ```
     
    RecordTable注解定义的列必须和RecordLog的value数组顺序一致
@@ -89,30 +89,30 @@ public String hello(String h) {
       - identity表示columns所有列和value对应，uuid也不需要指定值：
 
 ```java
-       @RecordLog(value = {"'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})
-       @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
-			@Column(name = "content"), 
-			@Column(name = "createTime") 
-		},generationType=GenerationType.IDENTITY)
-       public boolean login(String userName,String password) {
+@RecordLog(value = {"'用户注册 用户名:'+#userName+',密码:'+#password","#datetime"})
+@RecordTable(table = @Table(name="my_log"), id = "id", columns = {
+		@Column(name = "content"), 
+		@Column(name = "createTime") 
+	},generationType=GenerationType.IDENTITY)
+public boolean login(String userName,String password) {
 ```
    - auto是程序指定主键  第0列就是主键的参数
 ```java
-        @RecordLog(value = {"#user.id","'用户注册 用户名:'+#user.userName+',密码:'+#user.password","#datetime"})		
-        @RecordTable(table = @Table(name="my_log"), id = "id", columns = {
-			@Column(name = "content"), 
-			@Column(name = "createTime") 
-		},generationType=GenerationType.AUTO)
-	public boolean login(User user) 			
+@RecordLog(value = {"#user.id","'用户注册 用户名:'+#user.userName+',密码:'+#user.password","#datetime"})		
+@RecordTable(table = @Table(name="my_log"), id = "id", columns = {
+		@Column(name = "content"), 
+		@Column(name = "createTime") 
+	},generationType=GenerationType.AUTO)
+public boolean login(User user) 			
 					
 ```
    如果觉得使用@RecordTable每个日志都需要定义注解，可以自己实现DataSourceStorage接口，注册到springbean的容器。
      此时就不需要使用@RecordTable注解。
    
 ```java
-       @Bean
-       public DataSourceStorage dss(){
-	   return XXXDataSourceStorage();
-       }
+@Bean
+public DataSourceStorage dss(){
+   return XXXDataSourceStorage();
+}
 ```
   
